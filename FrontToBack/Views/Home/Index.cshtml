@@ -1,0 +1,781 @@
+﻿@model HomeVm
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Main Start -->
+<main>
+    <!-- Section-1 Start -->
+    <section style="position: relative;">
+        <div id="slideHow" style="width: 100%; height: 524px; position: relative;"></div>
+        <div class="sendFlowerHead">
+            <p class="sendFlowerHead-p1" style="margin-bottom: 50px;">@Html.Raw(Model.SliderDesc.Title)</p>
+            @*<p class="sendFlowerHead-p2">You mean it.</p>*@
+        </div>
+        <div class="sendFlowerHead-Under">
+            <span>
+                @Model.SliderDesc.Desc
+            </span>
+
+        </div>
+        <img style="position: absolute; top:320px;margin-left: 9%; width: 197px;height: 56px;" src="~/img/h2-sign-img.png" alt="">
+    
+    </section>
+    <!-- Section-1 End -->
+    <!-- Section-2 Start -->
+    <section class="section2">
+        <div class="forflexS2">
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">ALL</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">POPULAR</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">WINTER</button>
+                <button class="tablinks" onclick="openCity(event, 'Rio')">VARIOUS</button>
+                <button class="tablinks" onclick="openCity(event, 'Seattle')">EXOTIC</button>
+                <button class="tablinks" onclick="openCity(event, 'Baku')">GREENS</button>
+                <button class="tablinks" onclick="openCity(event, 'Texas')">CACTUSES</button>
+            </div>
+            <div class="filterSide">
+                <div class="textFilter">
+                    <span>FILTER</span> <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdownflex">
+                        <div class="dropdown1">
+                            <a class="colordropdownE" href="">
+                                Sort By
+                            </a>
+                            <a class="dropdownEcolor" href="">Default</a>
+                            <a class="dropdownEcolor" href="">Popularity</a>
+                            <a class="dropdownEcolor" href="">Newness</a>
+                            <a class="dropdownEcolor" href="">Price: Low To High</a>
+                            <a class="dropdownEcolor" href="">Price: High To Low</a>
+                            <br>
+                        </div>
+                        <div class="dropdown2">
+                            <a class="colordropdownE" href="">Price Range</a>
+                            <a class="dropdownEcolor" href="">All</a>
+                            <a class="dropdownEcolor" href="">$0-$10</a>
+                            <a class="dropdownEcolor" href="">$10-$20</a>
+                            <a class="dropdownEcolor" href="">$20-$30</a>
+                            <a class="dropdownEcolor" href="">$30-$40</a>
+                            <a class="dropdownEcolor" href="">40$+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="London" class="tabcontent">
+            <div class="tabcc">
+
+                <div class="cardFlower1">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-10-img.jpg" alt="">
+
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            MAJESTY PALM
+                        </span>
+                    </center>
+                    <!-- <center>
+                        <span class="Cost">$259</span>
+                    </center>
+                    <center>
+                     <span class="AddToCart">Add to cart</span>
+                    </center> -->
+                </div>
+                <div class="cardFlower1">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-11-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            FOXGLOVE FLOWER
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1">
+                    <div class="borderImg">
+                        <div class="item-zoom2 soldForTab">
+                            <img src="~/../img/Img-forCardMain/shop-13-img.jpg" alt="">
+                            <span>Sold</span>
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            SWEET ALYSSUM
+                        </span>
+                    </center>
+
+
+                </div>
+                <div class="cardFlower1">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-7-img.jpg" alt="">
+                        </div>
+
+                    </div>
+
+                    <center>
+                        <span>
+                            SPRING SNOWFLAKE
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-8-img.jpg" alt="">
+
+                        </div>
+
+                    </div>
+                    <div class="title">
+                        <center>
+                            <span>
+                                SCARLET SAGE
+                            </span>
+                        </center>
+                    </div>
+
+                </div>
+                <div class="cardFlower">
+                    <div class="borderImg ">
+                        <div class="item-zoom2 newForTab">
+                            <img style="position: absolute;" src="~/../img/Img-forCardMain/shop-9-img.jpg" alt="">
+                            <span style="position: absolute;">New</span>
+                        </div>
+
+                    </div>
+
+                    <center>
+                        <span>
+                            ROCK SOAPWORT
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower">
+                    <div class="borderImg ">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-12-img.jpg" alt="">
+                        </div>
+
+                    </div>
+
+                    <center>
+                        <span>
+                            SUMMER SAVORY
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-14-img.jpg" alt="">
+                        </div>
+
+                    </div>
+
+                    <center>
+                        <span>
+                            WILD ROSES
+                        </span>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+        <div id="Paris" class="tabcontent">
+            <div class="tabcc">
+
+                <div class="cardFlower1">
+                    <div class="borderImg">
+                        <div class="item-zoom2 soldForTab">
+                            <img src="~/../img/Img-forCardMain/shop-10-img.jpg" alt="">
+                            <span style="position: absolute;">Sold</span>
+                        </div>
+                    </div>
+                    <center>
+                        <span>
+                            MAJESTY PALM
+                        </span>
+                    </center>
+                    <!-- <center>
+                        <span class="cardFlowerUnderM">$259</span>
+                    </center> -->
+                </div>
+                <div class="cardFlower1">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-11-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            FOXGLOVE FLOWER
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2 soldForTab">
+                            <img src="~/../img/Img-forCardMain/shop-13-img.jpg" alt="">
+                            <span>Sold</span>
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            SWEET ALYSSUM
+                        </span>
+                    </center>
+
+
+                </div>
+                <div class="cardFlower1">
+                    <div class="borderImg ">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-7-img.jpg" alt="">
+                        </div>
+
+                    </div>
+
+                    <center>
+                        <span>
+                            SPRING SNOWFLAKE
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower">
+                    <div class="borderImg ">
+                        <div class="item-zoom2 saleForTab">
+                            <img style="position: absolute;" src="~/../img/Img-forCardMain/shop-8-img.jpg" alt="">
+                            <span style="position: absolute;">Sale</span>
+                        </div>
+
+                    </div>
+
+                    <center>
+                        <span>
+                            SCARLET SAGE
+                        </span>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div id="Tokyo" class="tabcontent">
+            <div class="tabcc">
+
+                <div class="cardFlower1">
+                    <div class="borderImg ">
+                        <div class="item-zoom2 soldForTab">
+                            <img src="~/../img/Img-forCardMain/shop-10-img.jpg" alt="">
+                            <span>Sold</span>
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            ROCK SOAPWORT
+                        </span>
+                    </center>
+                    <!-- <center>
+                        <span class="cardFlowerUnderM">$259</span>
+                    </center> -->
+                </div>
+                <div class="cardFlower1">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-11-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            SUMMER SAVORY
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-13-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            WILD ROSES
+                        </span>
+                    </center>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="Rio" class="tabcontent">
+            <div class="tabcc">
+
+                <div class="cardFlower1">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-9-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            ROCK SOAPWORT
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-8-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            SUMMER SAVORY
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-7-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            WILD ROSES
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg ">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-6-img.jpg" alt="">
+                        </div>
+                    </div>
+                    <center>
+                        <span>
+                            COLORFUL TULIPS
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2 newForTab">
+                            <img style="position: absolute;" src="~/../img/Tab  Various/shop-5-img.jpg" alt="">
+                            <span style="position: absolute;">New</span>
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            WILD CACTUS
+                        </span>
+                    </center>
+
+
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-4-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            PINK FLOWER TREE
+                        </span>
+                    </center>
+
+
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2 soldForTab">
+                            <img src="~/../img/Tab  Various/shop-3-img.jpg" alt="">
+                            <span style="position: absolute;">Sold</span>
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            CACTUS IN ORANGE
+                        </span>
+                    </center>
+
+
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-2-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            ORANGE AMARYLLIS
+                        </span>
+                    </center>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="Seattle" class="tabcontent">
+            <div class="tabcc">
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2 ">
+                            <img src="~/../img/Tab  Various/shop-7-img.jpg" alt="">
+
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            WILD ROSES
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-6-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            COLORFUL TULIPS
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-3-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            ORANGE AMARYLLIS
+                        </span>
+                    </center>
+                </div>
+            </div>
+
+        </div>
+        <div id="Baku" class="tabcontent">
+            <div class="tabcc">
+                <div class="cardFlower1">
+
+                    <div class="borderImg">
+                        <div class="item-zoom2 newForTab">
+                            <img style="position: absolute;" src="~/../img/Tab  Various/shop-8-img.jpg" alt="">
+                            <span style="position: absolute;">New</span>
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            SUMMER SAVORY
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-4-img.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            PINK FLOWER TREE
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Img-forCardMain/shop-10-img.jpg" alt="">
+                        </div>
+                    </div>
+                    <center>
+                        <span>
+                            SCHEFFLERA
+                        </span>
+                    </center>
+                </div>
+            </div>
+
+        </div>
+        <div id="Texas" class="tabcontent">
+            <div class="tabcc">
+                <div class="cardFlower1">
+
+                    <div class="borderImg">
+                        <div class="item-zoom2 soldForTab">
+                            <img src="~/../img/Img-forCardMain/shop-12-img.jpg" alt="">
+                            <span style="position: absolute;">Sold</span>
+                        </div>
+                    </div>
+                    <center>
+                        <span>
+                            ROCK SOAPWORT
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg ">
+                        <div class="item-zoom2">
+                            <img src="~/../img/Tab  Various/shop-4-img.jpg" alt="">
+                        </div>
+                    </div>
+                    <center>
+                        <span>
+                            WILD CACTUS
+                        </span>
+                    </center>
+                </div>
+                <div class="cardFlower1 ">
+                    <div class="borderImg ">
+                        <div class="item-zoom2 saleForTab">
+                            <img style="position: absolute;" src="~/../img/Img-forCardMain/shop-10-img.jpg" alt="">
+                            <span style="position: absolute;">Sale</span>
+                        </div>
+
+                    </div>
+                    <center>
+                        <span>
+                            CACTUS IN ORANGE
+                        </span>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Section-2 End-->
+    <br> <br> <br> <br> <br> <br> <br>
+    <!-- Section-3 Start -->
+    <section class="section3">
+        <div class="vidoSide item-zoom">
+            <a href="https://www.youtube.com/watch?v=K-0cjGCNYfs&t=1s"><img style="position: absolute;" src="~/../img/Section3/h3-video-img.jpg" alt=""></a>
+            <i style="position: absolute;" class="fas fa-play-circle"></i>
+
+
+        </div>
+
+        <div class="vidoSide2">
+            <div class="headerVSide">
+                <span class="blackV">Suprise Your </span><span class="redV"> Valentine!</span> <br>
+                <span class="blackV">Let us arrange a smile.</span>
+            </div>
+            <div class="middleSV">
+                <span>Where flowers are our inspiration to create lasting</span> <br>
+                <span>memories. Whatever the occasion...</span>
+            </div>
+            <div class="ulV">
+                <ul>
+                    <li>Hand picked just for you.</li>
+                    <br>
+                    <li>Unique flower arrangements</li>
+                    <br>
+                    <li>Best way to say you care.</li>
+                    <br>
+                </ul>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <!-- Section-3 End -->
+    <br> <br> <br> <br> <br> <br> <br>
+    <!-- Section-4 Start -->
+    <Section>
+        <div class="title4h">
+            <center>
+                <h2 style="font-size: 38px;font-family: playfair display,serif;">Flower Experts</h2>
+            </center>
+        </div>
+        <div class="text4h">
+            <center><span>A perfect blend of creativity, energy, communication, happiness and</span><br></center>
+            <center><span>love. Let us arrange a smile for you.</span></center>
+        </div>
+        <div class="image4h">
+            <div class="image1hS">
+                <img style="margin-bottom: 20px;" src="~/../img/Section4/h3-team-img-1.png" alt="">
+                <center><span style="color: black;">CRYSTAL BROOKS</span><br></center>
+                <center><span>Florist</span></center>
+            </div>
+            <div class="image2hS">
+                <img style="margin-bottom: 20px;" src="~/../img/Section4/h3-team-img-2.png" alt="">
+                <center><span style="color: black;">SHIRLEY HARRIS</span><br></center>
+                <center><span>Manager</span></center>
+            </div>
+            <div class="image3hS">
+                <img style="margin-bottom: 20px;" src="~/../img/Section4/h3-team-img-3.png" alt="">
+                <center><span style="color: black;">BEVERLY CLARK</span><br></center>
+                <center><span>Florist</span></center>
+            </div>
+            <div class="image4hS">
+                <img style="margin-bottom: 20px;" src="~/../img/Section4/h3-team-img-4.png" alt="">
+                <center><span style="color: black; margin-top: 5px;">AMANDA WATKINS</span><br></center>
+                <center><span>Florist</span></center>
+
+            </div>
+        </div>
+    </Section>
+    <!-- Section-4 End -->
+    <br><br><br><br><br>
+    <!-- Section-5 Start -->
+    <section class="section5">
+        <div class="backgroundImage5">
+            <h3>Join The Colorful Bunch!</h3>
+            <input type="email" placeholder="Email Address">
+            <input type="submit" class="submitB"></input>
+        </div>
+
+
+    </section>
+    <!-- Section-5 End -->
+    <!-- Section-6 Start -->
+    <section class="section6">
+        <div class="color6s">
+            <div class="headS6">
+                <center><h2 style="font-size: 38px; color: black; line-height: 1.447em;    font-family: playfair display,serif;">From our Blog</h2></center>
+                <center>
+                    <span style="    font-family: Lora,serif; font-size: 17px;">
+                        A perfect blend of creativity, energy, communication, happiness and
+                    </span><br>
+                    <span style="font-family: Lora,serif; font-size: 17px;">
+                        love. Let us arrange a smile for you.
+                    </span>
+                </center>
+            </div>
+            <div class="imgSideS6">
+                <div class="imgSide1S6 ">
+                    <div class="item-zoom1 ImgUnder">
+                        <img src="~/../img/Section6/blog-feature-img-1.jpg" alt="">
+                        <span>27.04.2018</span>
+                    </div>
+                    <center><span style="font-family: playfair display,serif;">Flower Power</span></center>
+                    <center><span style="font-size: 18px; color: #777; ">Class aptent taciti sociosqu ad litora</span></center>
+                    <center><span style="font-size: 18px; color: #777; ">torquent per conubia nostra, per</span></center>
+                </div>
+                <div class="imgSide2S6">
+                    <div class="item-zoom1 ImgUnder">
+                        <img src="~/../img/Section6/blog-feature-img-3.jpg" alt="">
+                        <span>03.05.2018</span>
+                    </div>
+
+                    <center><span>Local Florists</span></center>
+                    <center><span style="font-size: 18px; color: #777; ">Class aptent taciti sociosqu ad litora</span></center>
+                    <center><span style="font-size: 18px; color: #777; ">torquent per conubia nostra, per</span></center>
+                </div>
+                <div class="imgSide3S6">
+                    <div class="item-zoom1 ImgUnder">
+                        <img src="~/../img/Section6/blog-feature-img-4.jpg" alt="">
+                        <span>03.05.2018</span>
+                    </div>
+
+                    <center><span>Flower Beauty</span></center>
+                    <center><span style="font-size: 18px; color: #777; ">Class aptent taciti sociosqu ad litora</span></center>
+                    <center><span style="font-size: 18px; color: #777; ">torquent per conubia nostra, per</span></center>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- Section-6 End -->
+    <!-- Section-7 Start -->
+
+
+    <section class="section7">
+        <div class="icon-S71">
+            <i class="fas fa-arrow-left icon-S7-1"></i>
+            <i class="fas fa-arrow-right icon-S7-2"></i>
+        </div>
+        <div class="owl-carousel owl-theme owl-Slider7">
+            <div class="item-s7">
+                <div class="img-S71">
+                    @*<img src="~/../img/Section7/testimonial-img-1.png" alt="">*@
+                    @foreach (var item in Model.Sliders)
+                    {
+                        <img src="~/../img/@item.ImageUrl" alt="">
+                    }
+                </div>
+                <span class="img-S71-span1">Lorem ipsum dolor sit amet consectetur.</span>
+                <span class="img-S71-span1">adipiscing elit.Aenean commodo ligula eget</span>
+                <span class="img-S71-span2">JASMINE WHITE</span>
+                <span class="img-S71-span3">Florist</span>
+            </div>
+            <div class="item-s7">
+                <div class="img-S71">
+                    @*<img src="~/../img/Section7/testimonial-img-2.png" alt="">*@
+
+                    @foreach (var item in Model.Sliders)
+                    {
+                        <img src="~/../img/@item.ImageUrl" alt="">
+                    }
+                </div>
+
+                <span class="img-S71-span1">Nullam dictum felis eu pede mollis pretium.</span>
+                <span class="img-S71-span1">Integer tincidunt. Cras dapibus lingua.</span>
+
+
+                <span class="img-S71-span2">ANNA BARNES</span>
+                <span class="img-S71-span3">Florist</span>
+            </div>
+
+        </div>
+
+        <!-- <div class="sliderImage7">
+           <div class="chervonI">
+               <i class="fas fa-chevron-left left"></i>
+               <i class="fas fa-chevron-right right"></i>
+           </div> -->
+        <!-- <div class="part1S7 item">
+
+         </div>
+         <div class="part2S7 item">
+           <center><img src="~/../img/Section7/testimonial-img-2.png" alt=""></center>
+           <center><p>Nullam dictum felis eu pede mollis pretium.</p></center>
+           <p><center>Integer tincidunt. Cras dapibus lingua.</center></p>
+
+
+           <center><p>ANNA BARNES</p></center>
+           <center><p>Florist</p></center>
+        </div>
+        </div> -->
+    </section>
+    <!-- Section-7 End -->
+
+
+</main>
+<!-- Main End -->

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontToBack", "FrontToBack\FrontToBack.csproj", "{71D9CA1D-F4D7-4D08-AA39-490C6E378152}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71D9CA1D-F4D7-4D08-AA39-490C6E378152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D9CA1D-F4D7-4D08-AA39-490C6E378152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D9CA1D-F4D7-4D08-AA39-490C6E378152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D9CA1D-F4D7-4D08-AA39-490C6E378152}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E53A8277-1B5D-4187-96AF-A46789761298}
+	EndGlobalSection
+EndGlobal
