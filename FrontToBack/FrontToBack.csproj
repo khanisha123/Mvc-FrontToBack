@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220106170344_addProductTable.cs" />
+    <Compile Remove="Migrations\20220106170344_addProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20220106193300_addAbout-VideoTable.cs" />
+    <Compile Remove="Migrations\20220106193300_addAbout-VideoTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
