@@ -30,7 +30,7 @@
                 @foreach (var item in Model.Categories)
                 {
                     <button data-id="@item.Name.ToLower();">@item.Name</button>
-                    
+
                 }
 
 
@@ -66,29 +66,30 @@
             </div>
         </div>
 
+        
 
 
         @foreach (var item in Model.Products)
         {
 
-                    
-                        <div data-id="@item.Category.Name.ToLower();">
-                            
-                                <div class="item-zoom2 soldForTab">
-                                    <img src="~/../img/Img-forCardMain/@item.ImageUrl" alt="">
-                                </div>
-                            
-                                <span>
-                                    @item.Name
-                                </span>
-                            
-                                <span>
-                                    $@item.Price
-                                </span>
-                            
-                        </div>
-                        
-                    
+
+            <div data-id="@item.Category.Name.ToLower();">
+
+                <div class="item-zoom2 soldForTab">
+                    <img src="~/../img/Img-forCardMain/@item.ImageUrl" alt="">
+                </div>
+
+                <span>
+                    @item.Name
+                </span>
+
+                <span>
+                    $@item.Price
+                </span>
+
+            </div>
+
+
         }
 
 
