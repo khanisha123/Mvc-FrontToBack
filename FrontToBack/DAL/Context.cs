@@ -18,6 +18,8 @@ namespace FrontToBack.DAL
         public DbSet<Category>Categories { get; set; }
         public DbSet<Product>Products { get; set; }
         public DbSet<About_Video> About_Videos { get; set; }
+        public DbSet<Bio>Bios { get; set; }
+        public DbSet<Footer> Footers { get; set; }
 
     }
 }
