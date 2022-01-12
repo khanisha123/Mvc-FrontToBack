@@ -17,7 +17,7 @@
         <!-- <i class="fas fa-bars"></i> -->
         <div class="menu__bar">
             <div class="headTitle">
-                <a @*asp-controller="home"*@ href="/home/Index"><img style="width: 238px;height: 30px;" src="~/img/@Model.LogoUrl" alt=""></a>
+                <a asp-controller="home" asp-action="index"><img style="width: 238px;height: 30px;" src="~/img/@Model.LogoUrl" alt=""></a>
             </div>
 
             <div class="navlink">
@@ -238,14 +238,10 @@
                 </div>
 
                 <div class="shoppingBag">
-                    <i class="fas fa-shopping-bag">
-                        <sup>
-                            <div class="">
-
-                            </div>
-                        </sup>
-                    </i>
-
+                    <a asp-controller="BasketController" asp-action="ShowBasket"><i class="fas fa-shopping-bag"</i></a>
+                    <sup>
+                        @ViewBag.ProductCount
+                    </sup>
                 </div>
 
                 <div class="cardSide">
