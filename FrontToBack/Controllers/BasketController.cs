@@ -26,14 +26,14 @@ namespace FrontToBack.Controllers
         public IActionResult Remove() {
             
            
-            Product product = new Product();
-            int productId = product.Id;
-            Product product1 = _context.Products.Find(productId);
-            int empty;
-            if (product1 !=null)
-            {
-                Remove(product1);
-            }
+            //Product product = new Product();
+            //int productId = product.Id;
+            //Product product1 = _context.Products.Find(productId);
+            //int empty;
+            //if (product1 !=null)
+            //{
+            //    Remove(product1);
+            //}
 
             return View();
             

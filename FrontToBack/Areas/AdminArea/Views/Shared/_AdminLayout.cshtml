@@ -175,7 +175,7 @@
                         </a>
 
                     </li>
-                    
+
                     <li class="nav-item">
                         <a asp-controller="Category" asp-action="Index" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basic">
                             Categories
@@ -250,6 +250,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+
     <script src="~/admin/vendors/base/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page-->
@@ -267,6 +268,8 @@
     <script src="~/admin/js/data-table.js"></script>
     <script src="~/admin/js/jquery.dataTables.js"></script>
     <script src="~/admin/js/dataTables.bootstrap4.js"></script>
+    @RenderSection("Scripts", false);
+    @RenderSection("Css", false);
     <!-- End custom js for this page-->
 </body>
 
