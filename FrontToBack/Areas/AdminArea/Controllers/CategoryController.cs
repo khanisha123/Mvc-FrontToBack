@@ -82,15 +82,6 @@ namespace FrontToBack.Areas.AdminArea.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Delete(Category category) {
-
-            Category deleteCategory = new Category
-            {
-                Name = category.Name,
-                Description = category.Description
-            };
-            return View();
         
-        }
     }
 }
