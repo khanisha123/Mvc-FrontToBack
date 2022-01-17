@@ -1,5 +1,6 @@
 ﻿using FrontToBack.DAL;
 using FrontToBack.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace FrontToBack.Areas.AdminArea.Controllers
     [Area("AdminArea")]
     public class CategoryController : Controller
     {
-        public readonly Context _context;
+        private readonly Context _context;
+        
         public CategoryController(Context context)
         {
             _context = context;
+           
         }
         public IActionResult Index()
         {
@@ -80,6 +83,26 @@ namespace FrontToBack.Areas.AdminArea.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Delete(int? id) {
+
+            if (id == null) return NotFound();
+            Category dbCategory = await _context.Categories.FindAsync(id);
+            if (dbCategory == null) return NotFound();
+            return View(dbCategory);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteCategory(int? id) {
+
+            if (id == null) return NotFound();
+            Category dbCategory = await _context.Categories.FindAsync(id);
+            if (dbCategory == null) return NotFound();
+            _context.Categories.Remove(dbCategory);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
         

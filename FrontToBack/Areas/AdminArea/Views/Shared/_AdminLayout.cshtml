@@ -170,29 +170,30 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a asp-controller="Dashboard" asp-action="Index" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basic">
+                        <a asp-controller="Dashboard" asp-area="AdminArea" asp-action="Index" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basic">
                             DashBoard
                         </a>
 
                     </li>
-
                     <li class="nav-item">
-                        <a asp-controller="Category" asp-action="Index" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basic">
+                        <a asp-controller="Category" asp-area="AdminArea" asp-action="Index" class="nav-link" >
                             Categories
                         </a>
 
                     </li>
+
                     <li class="nav-item">
-                        <a asp-controller="Product" asp-action="Index" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basic">
+                        <a asp-controller="Product" asp-action="Index" class="nav-link" >
                             Products
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/charts/chartjs.html">
-                            <i class="mdi mdi-chart-pie menu-icon"></i>
-                            <span class="menu-title">Charts</span>
+                        <a asp-controller="Slider" asp-area="AdminArea" asp-action="Index" class="nav-link">
+                            Slider
                         </a>
+
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="pages/tables/basic-table.html">
                             <i class="mdi mdi-grid-large menu-icon"></i>
