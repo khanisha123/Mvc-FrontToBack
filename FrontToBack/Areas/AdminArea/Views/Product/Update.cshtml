@@ -23,13 +23,28 @@
                         <p class="card-description">
                             Update Image
                         </p>
-                        <form class="forms-sample" method="Post"  enctype="multipart/form-data">
-
+                        <form class="forms-sample" method="Post" enctype="multipart/form-data">
+                            <div class="form-group">
+            <label asp-for="ImageUrl"></label>
+            <input asp-for="ImageUrl" class="form-control" accept="image/*" placeholder="Name">
+            <span asp-validation-for="ImageUrl" style="color:red;"></span>
+        </div>
                             <div class="form-group">
                                 <label asp-for="ProductPhoto"></label>
                                 <input asp-for="ProductPhoto" accept="image/*" class="form-control" />
                                 <span asp-validation-for="ProductPhoto" style="color:red;"></span>
                             </div>
+                            <div class="form-group">
+                                <label asp-for="Name"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" style="color:red;"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Price"></label>
+                                <input asp-for="Price" class="form-control" />
+                                <span asp-validation-for="Price" style="color:red;"></span>
+                            </div>
+
 
                             <button class="btn btn-light">Submit</button>
                         </form>
