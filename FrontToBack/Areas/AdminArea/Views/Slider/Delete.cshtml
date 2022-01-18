@@ -1,0 +1,18 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <img src="~/img/@Model.ImageUrl" alt="Alternate Text" />
+        </div>
+        <div class="col-6">
+            <a asp-controller="Slider" asp-action="Index" class="btn btn-warning">Go Back</a>
+        </div>
+        <form class="forms-sample" method="Post" >
+            
+            <button class="btn btn-light mt-3">Delete</button>
+        </form>
+    </div>
+</div>
