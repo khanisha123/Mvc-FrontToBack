@@ -1,6 +1,7 @@
 ﻿using FrontToBack.DAL;
 using FrontToBack.HomeModels;
 using FrontToBack.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,14 +14,21 @@ namespace FrontToBack.Controllers
     public class HomeController : Controller
     {
         private readonly Context _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public HomeController(Context context)
+        public HomeController(Context context,UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         
-        public IActionResult Index()
+        public async  Task<IActionResult> Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                ViewBag.UserName = user.FullName;
+            };
             List<Slider> sliders = _context.Sliders.ToList();
             SliderDesc slider = _context.SliderDescs.FirstOrDefault();
             List<Category> categories = _context.Categories.ToList();
