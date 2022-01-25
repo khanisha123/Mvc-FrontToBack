@@ -13,15 +13,18 @@ namespace FrontToBack.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
 
-        public SignInManager<AppUser> _signInManager;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
 
-        public IActionResult Register() {
+        public IActionResult Register()
+        {
 
             return View();
         }
@@ -42,20 +45,22 @@ namespace FrontToBack.Controllers
             {
                 foreach (var item in identity.Errors)
                 {
-                    ModelState.AddModelError("",item.Description);
-                }return View();
+                    ModelState.AddModelError("", item.Description);
+                }
+                return View();
             }
-            await _signInManager.SignInAsync(user,true);
+            await _userManager.AddToRoleAsync(user, "Member");
+            await _signInManager.SignInAsync(user, true);
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult CheckInSign()
         {
-            
+
             return Content(User.Identity.IsAuthenticated.ToString());
 
         }
-        public IActionResult Login() 
+        public IActionResult Login()
         {
             return View();
         }
@@ -66,9 +71,9 @@ namespace FrontToBack.Controllers
             if (!ModelState.IsValid) return View();
             AppUser dbUser = await _userManager.FindByIdAsync(loginVM.UserName);
 
-            if (dbUser==null)
+            if (dbUser == null)
             {
-                ModelState.AddModelError("","UserName or Password Invalid");
+                ModelState.AddModelError("", "UserName or Password Invalid");
                 return View();
             }
             var signInResult = await _signInManager.PasswordSignInAsync(dbUser, loginVM.Password, true, true);
@@ -82,13 +87,13 @@ namespace FrontToBack.Controllers
                 ModelState.AddModelError("", "UserName or Password Invalid");
                 return View();
             }
-           
-            return RedirectToAction("Index","Home");
+
+            return RedirectToAction("Index", "Home");
         }
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -100,6 +105,22 @@ namespace FrontToBack.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+
+        public async Task CreateRole()
+        {
+            if (! await _roleManager.RoleExistsAsync("Admin"))
+            {
+
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+            }
+            if (! await _roleManager.RoleExistsAsync("Member")) 
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
+
+            }
+
         }
     }
 }
