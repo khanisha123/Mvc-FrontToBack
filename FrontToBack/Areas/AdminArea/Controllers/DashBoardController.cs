@@ -21,5 +21,7 @@ namespace FrontToBack.Areas.AdminArea.Controllers
         {
             return Content("about");
         }
+
+      
     }
 }

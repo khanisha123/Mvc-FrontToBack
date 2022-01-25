@@ -12,7 +12,6 @@ namespace FrontToBack.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
-
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
@@ -87,6 +86,12 @@ namespace FrontToBack.Controllers
                 ModelState.AddModelError("", "UserName or Password Invalid");
                 return View();
             }
+            var roles = await _userManager.GetRolesAsync(dbUser);
+
+            if (roles[0]=="Admin")
+            {
+                return RedirectToAction("Index","Dashboard",new {area="AdminArea"});
+            }
 
             return RedirectToAction("Index", "Home");
         }
@@ -94,6 +99,8 @@ namespace FrontToBack.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+
+
         }
 
 
@@ -120,6 +127,7 @@ namespace FrontToBack.Controllers
                 await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
 
             }
+
 
         }
     }
