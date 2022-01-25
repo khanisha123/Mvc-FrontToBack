@@ -56,5 +56,36 @@ namespace FrontToBack.Areas.AdminArea.Controllers
 
             return View(userRoleVM);
         }
+        public IActionResult Register()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Register(RegisterVM registerVM)
+        {
+            if (!ModelState.IsValid) return View();
+            AppUser user = new AppUser
+            {
+                FullName = registerVM.FullName,
+                UserName = registerVM.UserName,
+                Email = registerVM.Email
+
+            };
+            IdentityResult identity = await _userManager.CreateAsync(user, registerVM.Password);
+            if (!identity.Succeeded)
+            {
+                foreach (var item in identity.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+                return View();
+            }
+            await _userManager.AddToRoleAsync(user, "Member");
+            await _signInManager.SignInAsync(user, true);
+
+            return RedirectToAction("Index", "User");
+        }
     }
 }
