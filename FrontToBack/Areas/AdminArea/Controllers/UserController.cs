@@ -22,7 +22,7 @@ namespace FrontToBack.Areas.AdminArea.Controllers
             _signInManager = signInManager;
             _roleManager = roleManager;
         }
-        public async  Task<IActionResult> Index(string name)
+        public IActionResult Index(string name)
         {
 
             var users = name == null ? _userManager.Users.ToList() : 

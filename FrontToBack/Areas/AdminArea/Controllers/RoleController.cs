@@ -72,9 +72,17 @@ namespace FrontToBack.Areas.AdminArea.Controllers
         }
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> Update(string Id,List<string>roles)
+        public async Task<IActionResult> Update(string id,List<string>roles)
         {
-            return Content("");
+            var user = await _userManager.FindByIdAsync(id);
+            var dbroles = _roleManager.Roles.ToList();
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            var addedRole1 = roles.Except(userRoles);
+            var removedRole = userRoles.Except(roles);
+            await _userManager.AddToRoleAsync(user,addedRole1);
+            await _userManager.RemoveFromRolesAsync(user, removedRole);
+            return RedirectToAction("Index");
         }
     }
 }
