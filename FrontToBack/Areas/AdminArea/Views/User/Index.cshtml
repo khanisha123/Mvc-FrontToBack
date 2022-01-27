@@ -23,6 +23,7 @@
                                 <th>FullName</th>
                                 <th>UserName</th>
                                 <th>Email</th>
+                                <th>Active </th>
                                 <th>Settings</th>
                             </tr>
                         </thead>
@@ -34,33 +35,44 @@
                                
 
 
-                                <tr>
-                                    @*<td>@item.Id</td>*@
-                                    <td>@item.FullName</td>
-                                    <td>@item.UserName</td>
-                                    <td>@item.Email</td>
-                                    <td>
-                                        <a asp-controller="User" asp-action="Update" asp-route-id="@item.Id" class="btn btn-success">
-                                            <i class="mdi mdi-table-edit"></i>
-                                        </a>
+                            <tr>
+                                @*<td>@item.Id</td>*@
+                                <td>@item.FullName</td>
+                                <td>@item.UserName</td>
+                                <td>@item.Email</td>
+                                @if (@item.IsActive)
+                                {
+                                   <td>
+                                      <a asp-controller="User" asp-action="IsActive" asp-route-Id="@item.Id" class="btn btn-success" style="color: white;">Active</a>
 
-                                        <a asp-controller="User" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-info">
-                                            <i class="mdi mdi-account-card-details"></i>
-                                        </a>
-
-                                        <a asp-controller="User" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
-                                            <i class="mdi mdi-account-remove"></i>
-                                        </a>
                                     </td>
-
+                                }
+                                else
+                                {
                                     <td>
-                                        <a asp-controller="User" asp-action="Update" asp-route-id="" class="btn btn-success" ><i class="mdi mdi-table-edit"></i></a>
-                                        <a asp-controller="User" asp-action="Detail" asp-route-id="@item.Id"class="btn btn-info" ><i class="mdi mdi-account-card-details"></i></a>
-                                        <a asp-controller="User" asp-action="Delete" asp-route-id=""class="btn btn-danger"><i class="mdi mdi-account-remove"></i></a>
-                                        <a asp-controller="Role" asp-action="Update" asp-route-id="@item.Id" class="btn btn-danger">ChangeRole</a>
+                                        <a class="btn btn-danger" asp-controller="User" asp-action="IsActive" asp-route-Id="@item.Id" style="color:white;">DeActive</a>
                                     </td>
+                                }
+                                <td>
+                                    <a asp-controller="User" asp-action="Update" asp-route-id="@item.Id" class="btn btn-success">
+                                        <i class="mdi mdi-table-edit"></i>
+                                    </a>
 
-                                </tr>
+                                    <a asp-controller="User" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-info">
+                                        <i class="mdi mdi-account-card-details"></i>
+                                    </a>
+
+                                    <a asp-controller="User" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                                        <i class="mdi mdi-account-remove"></i>
+                                    </a>
+                                </td>
+
+                                <td>
+                                    
+                                    <a asp-controller="Role" asp-action="Update" asp-route-id="@item.Id" class="btn btn-danger">ChangeRole</a>
+                                </td>
+
+                            </tr>
                             }
                                 
 

@@ -1,4 +1,5 @@
-﻿using FrontToBack.Models;
+﻿using FrontToBack.DAL;
+using FrontToBack.Models;
 using FrontToBack.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,18 +16,22 @@ namespace FrontToBack.Areas.AdminArea.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly Context _context;
 
-        public UserController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+        public UserController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager,Context context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _context = context;
         }
         public IActionResult Index(string name)
         {
 
             var users = name == null ? _userManager.Users.ToList() : 
                  _userManager.Users.Where(u => u.FullName.ToLower().Contains(name.ToLower())).ToList();
+
+
 
 
 
@@ -88,6 +93,26 @@ namespace FrontToBack.Areas.AdminArea.Controllers
             return RedirectToAction("Index", "User");
         }
 
-        
+        public async Task<IActionResult> IsActive(string id)
+        {
+            AppUser appUser = await _userManager.FindByIdAsync(id);
+
+            if (appUser == null)
+            {
+                return NotFound();
+            }
+            if (appUser.IsActive) 
+            {
+                appUser.IsActive = false;
+
+            }
+            else
+            {
+                appUser.IsActive = true;
+            }
+            return RedirectToAction("Index");
+
+        }
+
     }
 }

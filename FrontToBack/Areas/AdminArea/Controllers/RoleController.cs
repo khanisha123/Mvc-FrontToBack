@@ -80,7 +80,7 @@ namespace FrontToBack.Areas.AdminArea.Controllers
 
             var addedRole1 = roles.Except(userRoles);
             var removedRole = userRoles.Except(roles);
-            await _userManager.AddToRoleAsync(user,addedRole1);
+            await _userManager.AddToRolesAsync(user, addedRole1);
             await _userManager.RemoveFromRolesAsync(user, removedRole);
             return RedirectToAction("Index");
         }

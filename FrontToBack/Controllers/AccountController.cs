@@ -39,6 +39,7 @@ namespace FrontToBack.Controllers
                 Email = registerVM.Email
 
             };
+            user.IsActive = true;
             IdentityResult identity = await _userManager.CreateAsync(user, registerVM.Password);
             if (!identity.Succeeded)
             {
