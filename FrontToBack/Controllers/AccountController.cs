@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace FrontToBack.Controllers
@@ -76,7 +78,13 @@ namespace FrontToBack.Controllers
                 ModelState.AddModelError("", "UserName or Password Invalid");
                 return View();
             }
+
             var signInResult = await _signInManager.PasswordSignInAsync(dbUser, loginVM.Password, true, true);
+
+            if (!dbUser.IsActive)
+            {
+                ModelState.AddModelError("", "user is a deactive");
+            }
             if (signInResult.IsLockedOut)
             {
                 ModelState.AddModelError("", "is lockout");
@@ -130,6 +138,90 @@ namespace FrontToBack.Controllers
             }
 
 
+        }
+
+
+
+
+
+
+
+
+
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+
+        public async Task<IActionResult> ForgetPassword(ForgetPassword forget)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(forget.User.Email);
+            if (user == null) NotFound();
+
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var link = Url.Action(nameof(ResetPassword), "Account", new { email = user.Email, token }, Request.Scheme);
+            using (MailMessage mail = new MailMessage())
+            {
+                mail.From = new MailAddress("guntebrustemov@gmail.com", "Reset");
+                mail.To.Add(user.Email);
+                mail.Subject = "Reset Password";
+                mail.Body = $"<a href={link}>Go to Reset Password</a>";
+                mail.IsBodyHtml = true;
+
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtp.Credentials = new NetworkCredential("guntebrustemov", "gunteb7@");
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
+
+                }
+                return RedirectToAction("Home", "Index");
+            }
+        }
+
+        public async Task<IActionResult> ResetPassword(string email, string token)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
+            if (user == null) NotFound();
+
+            ForgetPassword forgetPassword = new ForgetPassword
+            {
+                Token = token,
+                User = user
+            };
+            return View(forgetPassword);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [ActionName("ResetPassword")]
+
+        public async Task<IActionResult> ResetPassword(ForgetPassword model)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(model.User.Email);
+            if (user == null) NotFound();
+
+            ForgetPassword forgetPassword = new ForgetPassword
+            {
+                Token = model.Token,
+                User = user
+            };
+            //if (!ModelState.IsValid) return View(forgetPassword);
+
+
+            IdentityResult result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError("", item.Description);
+
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }

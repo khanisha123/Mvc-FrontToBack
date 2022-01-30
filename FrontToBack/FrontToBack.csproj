@@ -9,9 +9,20 @@
     <Compile Remove="Migrations\20220106170344_addProductTable.Designer.cs" />
     <Compile Remove="Migrations\20220106193300_addAbout-VideoTable.cs" />
     <Compile Remove="Migrations\20220106193300_addAbout-VideoTable.Designer.cs" />
+    <Compile Remove="Migrations\20220130153623_AddCommentNewReallyy.cs" />
+    <Compile Remove="Migrations\20220130153623_AddCommentNewReallyy.Designer.cs" />
+    <Compile Remove="Migrations\20220130180022_AddFix.cs" />
+    <Compile Remove="Migrations\20220130180022_AddFix.Designer.cs" />
+    <Compile Remove="Migrations\20220130180337_AddFixx1.cs" />
+    <Compile Remove="Migrations\20220130180337_AddFixx1.Designer.cs" />
+    <Compile Remove="Migrations\20220130182603_AddFixEverything.cs" />
+    <Compile Remove="Migrations\20220130182603_AddFixEverything.Designer.cs" />
+    <Compile Remove="Migrations\20220130182657_AddFixEverything.cs" />
+    <Compile Remove="Migrations\20220130182657_AddFixEverything.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">

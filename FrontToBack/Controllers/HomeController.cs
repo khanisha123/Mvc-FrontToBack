@@ -32,8 +32,10 @@ namespace FrontToBack.Controllers
             List<Slider> sliders = _context.Sliders.ToList();
             SliderDesc slider = _context.SliderDescs.FirstOrDefault();
             List<Category> categories = _context.Categories.ToList();
+            List<Product> products = _context.Products.ToList();
             About_Video about_Videos = _context.About_Videos.FirstOrDefault();
             HomeVm homeVm = new HomeVm();
+            homeVm.Products = products;
             homeVm.Sliders = sliders;
             homeVm.SliderDesc = slider;
             homeVm.Categories = categories;

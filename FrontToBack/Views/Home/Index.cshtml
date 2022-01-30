@@ -1,4 +1,5 @@
 ﻿@model HomeVm
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Index";
 }
@@ -82,7 +83,14 @@
         </div>
 
 
-        @await Component.InvokeAsync("Products", 8);
+        @foreach (var item in Model.Products)
+        {
+    <a asp-controller="ProductList" asp-action="Index" asp-route-id="@item.Id">
+
+        <img style="width:200px;height:200px;" src="~/img/@item.ImageUrl" />
+    </a>
+            
+        }
 
 
 
@@ -121,7 +129,7 @@
             </div>
 
         </div>
-        </div>
+
     </section>
     <!-- Section-3 End -->
     <br> <br> <br> <br> <br> <br> <br>
@@ -167,7 +175,7 @@
         <div class="backgroundImage5">
             <h3>Join The Colorful Bunch!</h3>
             <input type="email" placeholder="Email Address">
-            <input type="submit" class="submitB"></input>
+            <input type="submit" class="submitB"/>
         </div>
 
 
