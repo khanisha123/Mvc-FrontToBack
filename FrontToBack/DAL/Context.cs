@@ -22,6 +22,8 @@ namespace FrontToBack.DAL
         public DbSet<About_Video> About_Videos { get; set; }
         public DbSet<Bio>Bios { get; set; }
         public DbSet<Footer> Footers { get; set; }
+        public DbSet<Sales> Sales { get; set; }
+        public DbSet<SalesProduct> SalesProducts { get; set; }
 
     }
 }

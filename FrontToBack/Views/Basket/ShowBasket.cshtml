@@ -38,7 +38,28 @@
 
 }
 else
-	{
-           <a asp-controller="home" asp-action="index">Go to Home</a>
+{
+    <a asp-controller="home" asp-action="index">Go to Home</a>
 
-	}
+}
+
+
+<div class="row">
+    <form action="Sale" method="post">
+        <button class="btn btn-outline-primary">Buy Now..</button>
+    </form>
+</div>
+
+
+@section Scripts{
+
+    <script>
+
+    let successAlert = document.getElementById("successAlert");
+
+    setTimeout(() => {
+        successAlert.remove();
+    },3000)
+    </script>
+
+}

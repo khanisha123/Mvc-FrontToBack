@@ -21,7 +21,7 @@
             var count = 0;
 
         }
-        @foreach (var item in Model.commentList)
+        @*@foreach (var item in Model.commentList)
         {
             var txt1 = @item.Text;
 
@@ -34,14 +34,14 @@
             <th>
                 @bi
             </th>
-        }
+        }*@
        
     </tr>
     <tr>
         <td>
             <img style="width:200px;height:200px;" src="~/img/@Model.ImageUrl" />
         </td>
-        @foreach (var item in Model.commentList)
+        @*@foreach (var item in Model.commentList)
         {
              <td> 
 
@@ -50,7 +50,7 @@
                      <a class="btn btn-dark" asp-controller="ProductList" asp-action="Update" >Update</a>
 
              </td>
-        }
+        }*@
         
     </tr>
 </table>

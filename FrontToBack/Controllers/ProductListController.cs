@@ -26,16 +26,17 @@ namespace FrontToBack.Controllers
 
 
 
-            IEnumerable<Comment> comments = _context.comments.Where(c => c.ProductId == id);
+            //IEnumerable<Comment> comments = _context.comments.Where(c => c.ProductId == id);
 
-            Product products = _context.Products.Include(c => c.commentList).FirstOrDefault(f=>f.Id == id);
+            //Product products = _context.Products.Include(c => c.commentList).FirstOrDefault(f=>f.Id == id);
 
-            Product product1 = new Product
-            {
-                ImageUrl = products.ImageUrl,
-                commentList = products.commentList,
-            };
-            return View(product1);
+            //Product product1 = new Product
+            //{
+            //    ImageUrl = products.ImageUrl,
+            //    commentList = products.commentList,
+            //};
+            //return View(product1);
+            return View();
 
         }
         public IActionResult Delete(int id) {

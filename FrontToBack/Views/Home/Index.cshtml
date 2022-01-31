@@ -5,7 +5,17 @@
 }
 
 <!-- Main Start -->
+
 <main>
+    <div class="container">
+        <div class="row">
+            @if (TempData["Success"] != null)
+            {
+                <div id="successAlert" class="alert alert-success">@TempData["Success"]</div>
+            }
+
+        </div>
+    </div>
     @if (User.Identity.IsAuthenticated)
     {
         <a asp-controller="Account" asp-action="LogOut" class="btn btn-info">LogOut</a>
@@ -85,11 +95,11 @@
 
         @foreach (var item in Model.Products)
         {
-    <a asp-controller="ProductList" asp-action="Index" asp-route-id="@item.Id">
+            <a asp-controller="ProductList" asp-action="Index" asp-route-id="@item.Id">
 
-        <img style="width:200px;height:200px;" src="~/img/@item.ImageUrl" />
-    </a>
-            
+                <img style="width:200px;height:200px;" src="~/img/@item.ImageUrl" />
+            </a>
+
         }
 
 
@@ -175,7 +185,7 @@
         <div class="backgroundImage5">
             <h3>Join The Colorful Bunch!</h3>
             <input type="email" placeholder="Email Address">
-            <input type="submit" class="submitB"/>
+            <input type="submit" class="submitB" />
         </div>
 
 
@@ -297,3 +307,16 @@
 
 </main>
 <!-- Main End -->
+
+@section Scripts{
+
+    <script>
+
+    let successAlert = document.getElementById("successAlert");
+
+    setTimeout(() => {
+        successAlert.remove();
+    },3000)
+    </script>
+
+}

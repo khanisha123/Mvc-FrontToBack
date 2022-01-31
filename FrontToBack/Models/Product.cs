@@ -20,7 +20,6 @@ namespace FrontToBack.Models
         [NotMapped]
         [Required]
         public IFormFile ProductPhoto;
-
-        public List<Comment> commentList { get; set; }
+        
     }
 }

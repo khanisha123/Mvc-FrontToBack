@@ -19,6 +19,10 @@
     <Compile Remove="Migrations\20220130182603_AddFixEverything.Designer.cs" />
     <Compile Remove="Migrations\20220130182657_AddFixEverything.cs" />
     <Compile Remove="Migrations\20220130182657_AddFixEverything.Designer.cs" />
+    <Compile Remove="Migrations\20220131213101_Addfixr1.cs" />
+    <Compile Remove="Migrations\20220131213101_Addfixr1.Designer.cs" />
+    <Compile Remove="Migrations\20220131213204_addfixr.cs" />
+    <Compile Remove="Migrations\20220131213204_addfixr.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
